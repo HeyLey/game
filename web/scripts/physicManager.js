@@ -1,22 +1,19 @@
 var speed = 0;
 
 var physicManager = {
-
     scoreUpAudio: new Audio("audio/success.wav"),
     lostAudio: new Audio("audio/throw.mp3"),
 
     update: function (obj, left_pressed, right_pressed, up_pressed) {
-
         var newX = obj.pos_x;
         var newY = obj.pos_y;
 
         var e = this.entityAtXY(obj, newX, newY);
-
         var ts = mapManager.getTilesetIdx(newX + obj.size_x, newY + obj.size_y);
 
         if (e !== null) {
-            //alert('Game Over!');
             physicManager.scoreUpAudio.play();
+            Player1.score += 100;
             for (i = 0; i < gameManager.entities.length; i++) {
                 if (gameManager.entities[i] === e) {
                     e = null;

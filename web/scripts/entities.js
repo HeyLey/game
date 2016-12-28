@@ -1,11 +1,9 @@
 var Entity = {
-
     pos_x: 0,
     pos_y: 390,
     size_x: 0,
     size_y: 0,
     touch: false,
-
     extend: function(extendProto) {
         var object = Object.create(this);
         for(var property in extendProto) {
@@ -22,6 +20,7 @@ var Player = Entity.extend({
     size_y: 64,
     move_x: 0, 
     move_y: 0,
+    score: 0,
     side: "none",
     frame: 0,
     draw: function(ctx) {
@@ -65,8 +64,10 @@ var Player = Entity.extend({
 
 var Player1 = Player.extend();
 
-var spikes = Entity.extend({
 
+
+
+var spikes = Entity.extend({
     draw: function(ctx) {
         spriteManager.drawSprite(ctx, "spikes", this.pos_x, this.pos_y);
     }

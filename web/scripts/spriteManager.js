@@ -1,10 +1,8 @@
 var spriteManager = {
-
     image: new Image(),
     sprites: new Array(),
     imgLoaded: false,
     jsonLoaded: false,
-
     loadAtlas: function(atlasJson, atlasImg) {
        var request = new XMLHttpRequest();
         request.onreadystatechange = function() {
@@ -15,15 +13,13 @@ var spriteManager = {
         request.open("GET", atlasJson, true);
         request.send();
         this.loadImg(atlasImg);
-    },
-
+  },
     loadImg: function(imgName) {
         this.image.onload = function() {
             spriteManager.imgLoaded = true;
         };
         this.image.src = imgName;
     },
-
     parseAtlas: function(atlasJson) {
         var atlas = JSON.parse(atlasJson);
         for(var name in atlas.frames) {
@@ -32,7 +28,6 @@ var spriteManager = {
         }
         this.jsonLoaded = true;
     },
-
     drawSprite: function(ctx, name, x, y) {
         if(!this.imgLoaded || !this.jsonLoaded) {
             setTimeout(function() {
@@ -45,7 +40,6 @@ var spriteManager = {
             ctx.drawImage(this.image, sprite.x, sprite.y, sprite.w, sprite.h, x, y, sprite.w, sprite.h);
         }
     },
-
     getSprite: function(name) {
         for(var i = 0; i < this.sprites.length; i++) {
             var s = this.sprites[i];

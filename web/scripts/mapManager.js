@@ -1,5 +1,4 @@
 var mapManager = {
-
     mapData: null, //переменная для хранения карты
     tLayer: new Array(), //переменная для хранения ссылки на блоки карты
     xCount: 0,//кол-во блоков по горизонтали
@@ -12,7 +11,7 @@ var mapManager = {
     jsonLoaded: false, //json загружено
     view: {x: 0, y: 0, w: 1000, h: 30 * 32},
 
-    //Загрузка карты
+    //Загрузкакарты
     loadMap: function (path) {
         var request = new XMLHttpRequest();
         request.overrideMimeType("application/json");

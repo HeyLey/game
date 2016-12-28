@@ -1,10 +1,8 @@
 var eventManager = {
-
     left_pressed: false,
     right_pressed: false,
     up_pressed: false,
     action: [],
-
     setup: function (canvas) {
         document.body.addEventListener("keydown", this.onKeyDown);
         document.body.addEventListener("keyup", this.onKeyUp);
@@ -21,7 +19,6 @@ var eventManager = {
             eventManager.up_pressed = true;
         }
     },
-
     onKeyUp: function (event) {
         if (event.keyCode === 37) {
             eventManager.left_pressed = false;
